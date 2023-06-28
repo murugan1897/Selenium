@@ -58,8 +58,7 @@ public class amaz1 {
 			driver.switchTo().window(ls.get(1));
 		
 		     Actions act1 = new Actions(driver);
-		     act1.scrollByAmount(20, 100).perform();
-//			
+		     act1.scrollByAmount(20, 100).perform();	
 			WebElement ele=driver.findElement(By.xpath("//select[@id='quantity']"));
 			   Select s1 = new Select(ele);
 			     s1.selectByVisibleText("1");
