@@ -1,0 +1,86 @@
+#pageFactory
+package MyPackage;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class login {
+
+	@FindBy(how=How.NAME,using="username")
+	public WebElement username;
+	@FindBy(how=How.NAME,using="password")
+	public WebElement password;
+	@FindBy(how=How.ID,using="submit")
+	public WebElement submit;
+	
+	
+	public void submit() {
+		submit.click();
+		
+	}
+	public void password() {
+		password.sendKeys("Password123");
+	}
+	public void username() {
+		username.sendKeys("student");
+	}
+	public void maxi() {
+		
+	}
+	
+	
+}
+
+package uiandactions;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class Loginpage 
+{
+	
+    @FindBy(how = How.NAME, using = "user_name")
+    public WebElement Username;
+    
+    @FindBy(how = How.NAME, using = "password")
+    public WebElement Password;
+    
+    @FindBy(how = How.NAME, using = "submit")
+    public WebElement Submit;
+   
+    public void username()
+    {
+    	Username.sendKeys("admin");
+    }
+    
+    public void Password()
+    {
+    	Password.sendKeys("admin");
+    }
+    public void Submit()
+    {
+    	Submit.click();
+    }
+    
+    
+}
+package uiandactions;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class logoutpage {
+	
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Logout.')]")
+    public WebElement Logout;
+    
+	public void Logout()
+	{
+		Logout.click();
+	}
+	
+
+}
