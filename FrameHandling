@@ -1,0 +1,53 @@
+#selenium framehandling
+package basic1;
+import java.awt.AWTException;
+import java.awt.KeyEventPostProcessor;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class iframe2 {
+
+	public static void main(String[] args) throws AWTException {
+		
+		
+         WebDriver driver=new ChromeDriver();
+	
+		driver.navigate().to("https://ui.vision/demo/webtest/frames/");
+		driver.manage().window().maximize();
+		
+      	driver.switchTo().frame(0);
+		driver.findElement(By.tagName("input")).sendKeys("mani");
+		driver.switchTo().parentFrame();
+		driver.switchTo().frame(driver.findElement(By.xpath("//frame[@src='frame_2.html']")));
+		driver.findElement(By.tagName("input")).sendKeys("frnd");
+		driver.switchTo().parentFrame();
+	WebElement outer1=driver.findElement(By.xpath("//frame[@src='frame_3.html']"));
+	driver.switchTo().frame(outer1);
+	driver.findElement(By.tagName("input")).sendKeys("murugan");
+	driver.switchTo().window(driver.getWindowHandle());
+	driver.switchTo().frame(outer1);
+	driver.switchTo().frame(0);
+	driver.findElement(By.xpath("//div[@class='AB7Lab Id5V1']")).click();
+
+   driver.findElement(By.xpath("//div[@class='uHMk6b fsHoPb']")).click();
+   driver.findElement(By.xpath("//div[@class='e2CuFe eU809d']")).click();
+   Robot rb=new Robot();
+   Actions act = new Actions(driver);
+ 
+   rb.keyPress(KeyEvent.VK_DOWN);
+  act.sendKeys(Keys.PAGE_DOWN).perform();
+	act.sendKeys(Keys.ENTER).perform();
+	
+	driver.findElement(By.xpath("//span[text()='Next']")).click();
+	
+	}
+}
